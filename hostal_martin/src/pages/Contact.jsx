@@ -47,7 +47,7 @@ function Contact() {
             </div>
             <div className="mt-6">
               <a 
-                href="https://wa.me/573207028323" 
+                href="https://wa.me/573228803018" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn btn-primary inline-flex items-center space-x-2"

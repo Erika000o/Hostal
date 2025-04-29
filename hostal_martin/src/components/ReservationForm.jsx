@@ -15,7 +15,7 @@ function ReservationForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const whatsappMessage = `Reserva - Nombre: ${formData.name}, Email: ${formData.email}, Teléfono: ${formData.phone}, Mensaje: ${formData.message}`
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(whatsappMessage)}`
+    const whatsappUrl = `https://wa.me/3228803018?text=${encodeURIComponent(whatsappMessage)}`
     window.open(whatsappUrl, '_blank')
   }
 

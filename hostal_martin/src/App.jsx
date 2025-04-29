@@ -6,6 +6,7 @@ import About from './pages/About'
 import Rooms from './pages/Rooms'
 import Reservations from './pages/Reservations'
 import Contact from './pages/Contact'
+import { FloatingWhatsApp } from './components/ui/WhatsApp'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </div>
   )
 }
