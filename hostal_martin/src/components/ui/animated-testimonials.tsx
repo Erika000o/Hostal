@@ -5,8 +5,10 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Testimonial = {
+  id: number;
   quote: string;
   name: string;
   designation: string;
@@ -21,6 +23,7 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const navigate = useNavigate();
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -44,11 +47,18 @@ export const AnimatedTestimonials = ({
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
+
+  const handleSelectRoom = () => {
+    const selectedRoom = testimonials[active];
+    // Redirigir a la página de habitaciones con la habitación seleccionada como estado
+    navigate('/rooms', { state: { selectedRoom } });
+  };
+
   return (
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative h-80 w-full cursor-pointer" onClick={handleSelectRoom}>
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -60,8 +70,7 @@ export const AnimatedTestimonials = ({
                     rotate: randomRotateY(),
                   }}
                   animate={{
-                    opacity: isActive(index) ? 1 : 0.7,
-                    scale: isActive(index) ? 1 : 0.95,
+                    opacity: 1,
                     z: isActive(index) ? 0 : -100,
                     rotate: isActive(index) ? 0 : randomRotateY(),
                     zIndex: isActive(index)
@@ -84,8 +93,8 @@ export const AnimatedTestimonials = ({
                   <img
                     src={testimonial.src}
                     alt={testimonial.name}
-                    width={500}
-                    height={500}
+                    width={1000}
+                    height={1000}
                     draggable={false}
                     className="h-full w-full rounded-3xl object-cover object-center"
                   />
@@ -114,13 +123,13 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-black dark:text-white">
+            <h3 className="text-2xl font-bold text-black dark:text-black">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
+            <p className="text-sm text-gray-500 dark:text-black">
               {testimonials[active].designation}
             </p>
-            <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
+            <motion.p className="mt-8 text-lg text-gray-500 dark:text-black">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}

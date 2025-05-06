@@ -1,28 +1,31 @@
 import Gallery from '../components/Gallery'
 import { AnimatedTestimonials } from '../components/ui/animated-testimonials'
-import { WordRotate } from '../components/ui/WordRotate'
 import { VelocityScroll } from '../components/ui/VelocityScroll'
 
 const habitaciones = [
   {
+    id: 1,
     quote: "Habitación acogedora con vista al jardín",
     name: "Habitación Estándar",
     designation: "2 personas",
     src: "/images/habitacion1.png"
   },
   {
+    id: 2,
     quote: "Suite con balcón privado y jacuzzi",
     name: "Suite Premium",
     designation: "2 personas",
     src: "/images/habitacion2.png"
   },
   {
+    id: 3,
     quote: "Habitación Tierra Chanama sencilla con baño privado",
     name: "Habitación Sencilla",
     designation: "4 personas",
     src: "/images/habitacionbaño.jpg"
   },
   {
+    id: 4,
     quote: "Habitación familiar con espacio amplio",
     name: "Habitación Familiar",
     designation: "4 personas",
@@ -33,13 +36,6 @@ const habitaciones = [
 function Home() {
   return (
     <div className="container mx-auto p-4 relative">
-      <div className="absolute top-4 right-4 z-10">
-        <WordRotate 
-          words={["Descanso", "y", "tranquilidad","que te hará","volver!"]} 
-          className="text-3xl font-bold text-primary bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg"
-        />
-      </div>
-
       <h1 className="mb-4">
         <span className="font-['Pacifico'] text-4xl">Martín Pescador</span>
         <br />

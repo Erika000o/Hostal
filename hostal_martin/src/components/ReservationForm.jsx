@@ -1,35 +1,70 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import { createReserva } from '../lib/api';
 
-function ReservationForm() {
+function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '', initialFechaEntrada = '', initialFechaSalida = '' }) {
   const [formData, setFormData] = useState({
-    name: '',
+    habitacion_id: initialHabitacionId,
+    nombre_cliente: '',
     email: '',
-    phone: '',
-    message: '',
-  })
+    fecha_entrada: initialFechaEntrada,
+    fecha_salida: initialFechaSalida,
+  });
+
+  const [habitacionName, setHabitacionName] = useState(initialHabitacionName);
+
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      habitacion_id: initialHabitacionId,
+      fecha_entrada: initialFechaEntrada,
+      fecha_salida: initialFechaSalida,
+    }));
+    setHabitacionName(initialHabitacionName);
+  }, [initialHabitacionId, initialHabitacionName, initialFechaEntrada, initialFechaSalida]);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const whatsappMessage = `Reserva - Nombre: ${formData.name}, Email: ${formData.email}, Teléfono: ${formData.phone}, Mensaje: ${formData.message}`
-    const whatsappUrl = `https://wa.me/3228803018?text=${encodeURIComponent(whatsappMessage)}`
-    window.open(whatsappUrl, '_blank')
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await createReserva(formData);
+      alert('Reserva creada con éxito');
+    } catch (error) {
+      console.error('Error al crear la reserva:', error);
+      alert('Error al crear la reserva. Por favor, inténtalo de nuevo.');
+    }
+  };
 
   return (
     <div className="border p-4 rounded">
       <h2 className="text-xl font-semibold mb-2">Formulario de Reserva</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block">Nombre</label>
+          <label htmlFor="habitacion_name" className="block">Habitación</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
+            id="habitacion_name"
+            name="habitacion_name"
+            value={habitacionName}
+            readOnly
+            className="w-full border p-2 rounded bg-gray-100"
+          />
+          <input
+            type="hidden"
+            id="habitacion_id"
+            name="habitacion_id"
+            value={formData.habitacion_id}
+          />
+        </div>
+        <div>
+          <label htmlFor="nombre_cliente" className="block">Nombre</label>
+          <input
+            type="text"
+            id="nombre_cliente"
+            name="nombre_cliente"
+            value={formData.nombre_cliente}
             onChange={handleChange}
             className="w-full border p-2 rounded"
             required
@@ -48,26 +83,26 @@ function ReservationForm() {
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block">Teléfono</label>
+          <label htmlFor="fecha_entrada" className="block">Fecha de Entrada</label>
           <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
+            type="date"
+            id="fecha_entrada"
+            name="fecha_entrada"
+            value={formData.fecha_entrada}
             onChange={handleChange}
             className="w-full border p-2 rounded"
             required
           />
         </div>
         <div>
-          <label htmlFor="message" className="block">Mensaje</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
+          <label htmlFor="fecha_salida" className="block">Fecha de Salida</label>
+          <input
+            type="date"
+            id="fecha_salida"
+            name="fecha_salida"
+            value={formData.fecha_salida}
             onChange={handleChange}
             className="w-full border p-2 rounded"
-            rows="4"
             required
           />
         </div>
@@ -79,7 +114,7 @@ function ReservationForm() {
         </button>
       </form>
     </div>
-  )
+  );
 }
 
-export default ReservationForm
+export default ReservationForm;
