@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { createReserva } from '../lib/api';
 
 function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '', initialFechaEntrada = '', initialFechaSalida = '' }) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     habitacion_id: initialHabitacionId,
     nombre_cliente: '',
@@ -30,19 +32,19 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
     e.preventDefault();
     try {
       await createReserva(formData);
-      alert('Reserva creada con éxito');
+      alert(t('reservationSuccess', { defaultValue: 'Reserva creada con éxito' }));
     } catch (error) {
       console.error('Error al crear la reserva:', error);
-      alert('Error al crear la reserva. Por favor, inténtalo de nuevo.');
+      alert(t('reservationError', { defaultValue: 'Error al crear la reserva. Por favor, inténtalo de nuevo.' }));
     }
   };
 
   return (
     <div className="border p-4 rounded">
-      <h2 className="text-xl font-semibold mb-2">Formulario de Reserva</h2>
+      <h2 className="text-xl font-semibold mb-2">{t('reservationForm')}</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="habitacion_name" className="block">Habitación</label>
+          <label htmlFor="habitacion_name" className="block">{t('room')}</label>
           <input
             type="text"
             id="habitacion_name"
@@ -59,7 +61,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
           />
         </div>
         <div>
-          <label htmlFor="nombre_cliente" className="block">Nombre</label>
+          <label htmlFor="nombre_cliente" className="block">{t('name')}</label>
           <input
             type="text"
             id="nombre_cliente"
@@ -71,7 +73,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
           />
         </div>
         <div>
-          <label htmlFor="email" className="block">Email</label>
+          <label htmlFor="email" className="block">{t('email')}</label>
           <input
             type="email"
             id="email"
@@ -83,7 +85,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
           />
         </div>
         <div>
-          <label htmlFor="fecha_entrada" className="block">Fecha de Entrada</label>
+          <label htmlFor="fecha_entrada" className="block">{t('checkInDate')}</label>
           <input
             type="date"
             id="fecha_entrada"
@@ -95,7 +97,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
           />
         </div>
         <div>
-          <label htmlFor="fecha_salida" className="block">Fecha de Salida</label>
+          <label htmlFor="fecha_salida" className="block">{t('checkOutDate')}</label>
           <input
             type="date"
             id="fecha_salida"
@@ -110,7 +112,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
           type="submit"
           className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
         >
-          Enviar Reserva
+          {t('submitReservation')}
         </button>
       </form>
     </div>

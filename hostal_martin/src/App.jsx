@@ -1,12 +1,16 @@
-import { Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import About from './pages/About'
-import Rooms from './pages/Rooms'
-import Reservations from './pages/Reservations'
-import Contact from './pages/Contact'
-import { FloatingWhatsApp } from './components/ui/WhatsApp'
+import { Routes, Route } from 'react-router-dom';
+
+// Componentes
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { FloatingWhatsApp } from './components/ui/WhatsApp';
+
+// Páginas
+import Home from './pages/Home';
+import About from './pages/About';
+import Rooms from './pages/Rooms';
+import Reservations from './pages/Reservations';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -24,7 +28,7 @@ function App() {
       <Footer />
       <FloatingWhatsApp />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
