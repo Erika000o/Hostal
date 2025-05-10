@@ -12,4 +12,5 @@ router.post('/', authenticateToken, habitacionController.createHabitacion);
 router.put('/:id', authenticateToken, habitacionController.updateHabitacion);
 router.delete('/:id', authenticateToken, habitacionController.deleteHabitacion);
 
+
 module.exports = router;

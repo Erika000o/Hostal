@@ -1,4 +1,4 @@
-const { Habitacion } = require('../models');
+const Habitacion = require('../models/habitacion');
 
 const habitacionController = {
   // Obtener todas las habitaciones
@@ -10,6 +10,7 @@ const habitacionController = {
         data: habitaciones
       });
     } catch (error) {
+      console.error('Error en getAllHabitaciones:', error);
       res.status(500).json({
         success: false,
         message: 'Error al obtener las habitaciones',
@@ -111,5 +112,6 @@ const habitacionController = {
     }
   }
 };
+
 
 module.exports = habitacionController;

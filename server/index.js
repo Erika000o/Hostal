@@ -14,9 +14,9 @@ const calendarioRoutes = require('./routes/calendarioRoutes');
 
 const app = express();
 
-// Configurar CORS para permitir solicitudes desde el frontend (Vite en puerto 5173)
+// Configurar CORS para permitir solicitudes desde el frontend (puerto 3000)
 app.use(cors({
-  origin: 'http://localhost:5173', // 
+  origin: ['http://localhost:3000', 'http://localhost:5173'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
@@ -41,11 +41,11 @@ reserva.belongsTo(habitacion, { foreignKey: 'habitacion_id' });
 habitacion.hasMany(calendario, { foreignKey: 'habitacion_id' });
 calendario.belongsTo(habitacion, { foreignKey: 'habitacion_id' });
 
-// Registrar las rutas
-app.use('/api', habitacionRoutes);
-app.use('/api', reservaRoutes);
-app.use('/api', calendarioRoutes);
-app.use('/api', usuarioRoutes);
+// Registrar las rutas con prefijos específicos
+app.use('/api/habitaciones', habitacionRoutes);
+app.use('/api/reservas', reservaRoutes);
+app.use('/api/calendario', calendarioRoutes);
+app.use('/api/auth', usuarioRoutes);
 
 const PORT = 5000;
 app.listen(PORT, () => {
