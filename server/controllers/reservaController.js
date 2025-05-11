@@ -73,3 +73,36 @@ exports.createReserva = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.deleteReservaById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await reserva.destroy({ where: { id } });
+    if (deleted) {
+      res.json({ success: true, message: 'Reserva eliminada correctamente' });
+    } else {
+      res.status(404).json({ error: 'Reserva no encontrada' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+exports.updateReserva = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida } = req.body;
+
+    const reservaActualizada = await reserva.update(
+      { habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida },
+      { where: { id } }
+    );
+
+    if (reservaActualizada[0] === 0) {
+      return res.status(404).json({ error: 'Reserva no encontrada' });
+    }
+
+    res.json({ success: true, message: 'Reserva actualizada correctamente' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
