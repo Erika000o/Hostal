@@ -1,5 +1,6 @@
 const usuario = require('../models/usuario');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 exports.getAllUsuarios = async (req, res) => {
   try {
@@ -80,7 +81,14 @@ exports.loginUsuario = async (req, res) => {
       return res.status(401).json({ error: 'Contraseña incorrecta' });
     }
 
-    res.json({ message: 'Login exitoso', userId: user.id });
+    // Generar token JWT
+    const token = jwt.sign(
+      { id: user.id, email: user.email, role: user.role || 'user' },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    res.json({ message: 'Login exitoso', token });
   } catch (error) {
     console.error('Error al iniciar sesión:', error.message);
     res.status(500).json({ error: error.message });

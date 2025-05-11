@@ -6,12 +6,16 @@ exports.getAllCalendario = async (req, res) => {
     console.log('Intentando obtener entradas de calendario...');
     const calendarios = await calendario.findAll({ include: habitacion });
     console.log('Entradas de calendario encontradas:', calendarios);
-    res.json(calendarios);
+    res.json({
+      success: true,
+      data: calendarios
+    });
   } catch (error) {
     console.error('Error:', error.message);
     res.status(500).json({ error: error.message });
   }
 };
+
 
 exports.updateEstado = async (req, res) => {
   try {
@@ -23,6 +27,48 @@ exports.updateEstado = async (req, res) => {
     }
     await calendarioExistente.update({ estado });
     res.json(calendarioExistente);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.createReserva = async (req, res) => {
+  try {
+    const { habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida } = req.body;
+    const habitacionExistente = await habitacion.findByPk(habitacion_id);
+    if (!habitacionExistente) {
+      return res.status(404).json({ error: 'Habitación no encontrada' });
+    }
+    const nuevaReserva = await calendario.create({ habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida });
+    res.status(201).json({ success: true, data: nuevaReserva });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.createReserva = async (req, res) => {
+  try {
+    const { habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida } = req.body;
+    const habitacionExistente = await habitacion.findByPk(habitacion_id);
+    if (!habitacionExistente) {
+      return res.status(404).json({ error: 'Habitación no encontrada' });
+    }
+    const nuevaReserva = await calendario.create({ habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida });
+    res.status(201).json({ success: true, data: nuevaReserva });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.createReserva = async (req, res) => {
+  try {
+    const { habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida } = req.body;
+    const habitacionExistente = await habitacion.findByPk(habitacion_id);
+    if (!habitacionExistente) {
+      return res.status(404).json({ error: 'Habitación no encontrada' });
+    }
+    const nuevaReserva = await calendario.create({ habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida });
+    res.status(201).json({ success: true, data: nuevaReserva });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

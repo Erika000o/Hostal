@@ -27,6 +27,7 @@ function Header() {
           <NavLink to="/rooms" className="hover:underline">{t('rooms')}</NavLink>
           <NavLink to="/reservations" className="hover:underline">{t('reservations')}</NavLink>
           <NavLink to="/contact" className="hover:underline">{t('contact')}</NavLink>
+          <NavLink to="login" className="hover:underline">{t('login')}</NavLink>
         </nav>
       </div>
     </header>

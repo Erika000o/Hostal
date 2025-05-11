@@ -10,7 +10,16 @@ const habitacion = sequelize.define('habitacion', {
   nombre: DataTypes.STRING,
   descripcion_es: DataTypes.TEXT,
   precio: DataTypes.DECIMAL(10, 2),
-}, {
+
+  disponible: {
+  type: DataTypes.BOOLEAN,
+  defaultValue: true,
+},
+
+},
+
+
+{
   tableName: 'habitaciones', // Apunta a la tabla existente
   timestamps: false, // No crear columnas automáticas
 });
