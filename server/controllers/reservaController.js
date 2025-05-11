@@ -1,7 +1,6 @@
-const reserva = require('../models/reserva'); // Importación directa
-const habitacion = require('../models/habitacion'); // Importación directa
+const reserva = require('../models/reserva'); 
+const habitacion = require('../models/habitacion'); 
 
-// ... funciones existentes ...
 
 exports.deleteReservaByHabitacionId = async (req, res) => {
   try {
@@ -44,22 +43,33 @@ exports.getReservasByHabitacionId = async (req, res) => {
   }
 };
 
-exports.crearReserva = async (req, res) => {
+exports.createReserva = async (req, res) => {
   try {
-    const { habitacion_id, cliente, fecha_inicio, fecha_fin } = req.body;
+    console.log('Datos recibidos para crear reserva:', req.body);
+    const { habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida } = req.body;
 
+    
+    if (!habitacion_id || !nombre_cliente || !email || !fecha_entrada || !fecha_salida) {
+      console.log('Faltan campos obligatorios para crear la reserva');
+      return res.status(400).json({ error: 'Faltan campos obligatorios para crear la reserva' });
+    }
+
+  
     const nuevaReserva = await reserva.create({
       habitacion_id,
-      cliente,
-      fecha_inicio,
-      fecha_fin
+      nombre_cliente,
+      email,
+      fecha_entrada,
+      fecha_salida,
     });
 
     res.status(201).json({
       success: true,
-      data: nuevaReserva
+      message: 'Reserva creada correctamente',
+      data: nuevaReserva,
     });
   } catch (error) {
+    console.error('Error al crear la reserva:', error);
     res.status(500).json({ error: error.message });
   }
 };

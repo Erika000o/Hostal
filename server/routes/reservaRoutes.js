@@ -3,7 +3,7 @@ const router = express.Router();
 const reservaController = require('../controllers/reservaController');
 
 router.get('/', reservaController.getAllReservas);
-//router.post('/', reservaController.createReserva);
+router.post('/', reservaController.createReserva);
 router.delete('/habitacion/:habitacion_id', reservaController.deleteReservaByHabitacionId);
 router.get('/habitacion/:habitacion_id', reservaController.getReservasByHabitacionId);
 

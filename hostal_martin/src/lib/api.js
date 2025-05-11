@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:5000/api';
 
-// Funciones para consumir la API
+
 export const fetchHabitaciones = async () => {
   const response = await fetch(`${API_URL}/habitaciones`);
   return response.json();
@@ -16,14 +16,33 @@ export const fetchReservas = async () => {
   return response.json();
 };
 
-export const createReserva = async (reservaData) => {
+export const createReserva = async (data) => {
   const response = await fetch(`${API_URL}/reservas`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(reservaData),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
   });
-  return response.json();
+
+  if (!response.ok) {
+    throw new Error('Error al crear la reserva');
+  }
+
+  return await response.json();
 };
+export const deleteReserva = async (habitacion_id) => {
+  const response = await fetch(`${API_URL}/reservas/habitacion/${habitacion_id}`, {
+    method: 'DELETE',
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al eliminar la reserva');
+  }
+
+  return await response.json();
+};
+
 
 export const registerUsuario = async (usuarioData) => {
   const response = await fetch(`${API_URL}/register`, {
