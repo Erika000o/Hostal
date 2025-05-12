@@ -48,13 +48,42 @@ exports.createReserva = async (req, res) => {
     console.log('Datos recibidos para crear reserva:', req.body);
     const { habitacion_id, nombre_cliente, email, fecha_entrada, fecha_salida } = req.body;
 
-    
     if (!habitacion_id || !nombre_cliente || !email || !fecha_entrada || !fecha_salida) {
       console.log('Faltan campos obligatorios para crear la reserva');
       return res.status(400).json({ error: 'Faltan campos obligatorios para crear la reserva' });
     }
 
-  
+    // Validar que no haya reservas que se solapen en la misma habitación y fechas
+    const reservasExistentes = await reserva.findAll({
+      where: {
+        habitacion_id,
+        [require('sequelize').Op.or]: [
+          {
+            fecha_entrada: {
+              [require('sequelize').Op.between]: [fecha_entrada, fecha_salida]
+            }
+          },
+          {
+            fecha_salida: {
+              [require('sequelize').Op.between]: [fecha_entrada, fecha_salida]
+            }
+          },
+          {
+            fecha_entrada: {
+              [require('sequelize').Op.lte]: fecha_entrada
+            },
+            fecha_salida: {
+              [require('sequelize').Op.gte]: fecha_salida
+            }
+          }
+        ]
+      }
+    });
+
+    if (reservasExistentes.length > 0) {
+      return res.status(400).json({ error: 'Ya existe una reserva para esta habitación en las fechas seleccionadas' });
+    }
+
     const nuevaReserva = await reserva.create({
       habitacion_id,
       nombre_cliente,
