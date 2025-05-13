@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Calendar from '../components/Calendar';
 import ReservationForm from '../components/ReservationForm';
 
 const AdminPanel = () => {
+  const { t } = useTranslation();
   const [rooms, setRooms] = useState([]);
   const [selectedRoomId, setSelectedRoomId] = useState(null);
   const [selectedRoomDisponible, setSelectedRoomDisponible] = useState(false);
@@ -14,6 +16,32 @@ const AdminPanel = () => {
   const [saveError, setSaveError] = useState('');
 
   const token = localStorage.getItem('token');
+
+  const fetchReservations = async (roomId) => {
+    setLoading(true);
+    setError('');
+    try {
+      const response = await fetch('http://localhost:5000/api/reservas', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error(t('errorFetchingReservations'));
+      }
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error(t('errorFetchingReservations'));
+      }
+      const data = result.data;
+      const filtered = data.filter(r => r.habitacion_id === roomId);
+      setReservations(filtered);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchRooms();
@@ -40,46 +68,20 @@ const AdminPanel = () => {
         },
       });
       if (!response.ok) {
-        throw new Error('Error al obtener habitaciones');
+        throw new Error(t('errorFetchingRooms'));
       }
       const result = await response.json();
       if (!result.success) {
-        throw new Error('Error en la respuesta de habitaciones');
+        throw new Error(t('errorFetchingRooms'));
       }
       const data = result.data;
       if (!Array.isArray(data)) {
-        throw new Error('La respuesta de habitaciones no es un array');
+        throw new Error(t('errorFetchingRooms'));
       }
       setRooms(data);
       if (data.length > 0 && !selectedRoomId) {
         setSelectedRoomId(data[0].id);
       }
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchReservations = async (roomId) => {
-    setLoading(true);
-    setError('');
-    try {
-      const response = await fetch('http://localhost:5000/api/reservas', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (!response.ok) {
-        throw new Error('Error al obtener reservas');
-      }
-      const result = await response.json();
-      if (!result.success) {
-        throw new Error('Error en la respuesta de reservas');
-      }
-      const data = result.data;
-      const filtered = data.filter(r => r.habitacion_id === roomId);
-      setReservations(filtered);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -102,7 +104,6 @@ const AdminPanel = () => {
     setSaveError('');
     try {
       if (!selectedRoomDisponible) {
-        // Crear reserva bloqueante en /api/reservas
         const response = await fetch('http://localhost:5000/api/reservas', {
           method: 'POST',
           headers: {
@@ -118,10 +119,9 @@ const AdminPanel = () => {
           }),
         });
         if (!response.ok) {
-          throw new Error('Error al crear reserva bloqueante');
+          throw new Error(t('errorSavingDisponible'));
         }
       } else {
-        // Eliminar reserva bloqueante
         const response = await fetch(`http://localhost:5000/api/reservas/habitacion/${selectedRoomId}`, {
           method: 'DELETE',
           headers: {
@@ -129,10 +129,9 @@ const AdminPanel = () => {
           },
         });
         if (!response.ok) {
-          throw new Error('Error al eliminar reserva bloqueante');
+          throw new Error(t('errorSavingDisponible'));
         }
       }
-      // Actualizar estado de la habitación
       const updateResponse = await fetch(`http://localhost:5000/api/habitaciones/${selectedRoomId}`, {
         method: 'PUT',
         headers: {
@@ -142,11 +141,11 @@ const AdminPanel = () => {
         body: JSON.stringify({ disponible: selectedRoomDisponible }),
       });
       if (!updateResponse.ok) {
-        throw new Error('Error al actualizar disponibilidad');
+        throw new Error(t('errorSavingDisponible'));
       }
       const result = await updateResponse.json();
       if (!result.success) {
-        throw new Error('Error en la respuesta al actualizar disponibilidad');
+        throw new Error(t('errorSavingDisponible'));
       }
       setRooms((prevRooms) =>
         prevRooms.map((room) =>
@@ -181,10 +180,10 @@ const AdminPanel = () => {
           }),
         });
         if (!response.ok) {
-          throw new Error('Error al crear reserva');
+          throw new Error(t('errorSavingDisponible'));
         }
       } else {
-        alert('Para eliminar reservas, use la interfaz de reservas.');
+        alert(t('deleteConfirmMessage'));
       }
       await fetchReservations(selectedRoomId);
     } catch (err) {
@@ -199,7 +198,7 @@ const AdminPanel = () => {
   };
 
   const handleDeleteReservation = async (id) => {
-    if (!window.confirm('¿Estás seguro de eliminar esta reserva?')) return;
+    if (!window.confirm(t('deleteConfirmMessage'))) return;
     setLoading(true);
     setError('');
     try {
@@ -210,7 +209,7 @@ const AdminPanel = () => {
         },
       });
       if (!response.ok) {
-        throw new Error('Error al eliminar reserva');
+        throw new Error(t('errorDeletingReservation'));
       }
       await fetchReservations(selectedRoomId);
       if (selectedReservation && selectedReservation.id === id) {
@@ -230,13 +229,13 @@ const AdminPanel = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Panel de Administración</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">{t('adminPanelTitle')}</h1>
 
       {error && <p className="text-red-600 mb-4">{error}</p>}
-      {loading && <p className="mb-4">Cargando...</p>}
+      {loading && <p className="mb-4">{t('loadingText')}</p>}
 
       <div className="mb-6">
-        <label htmlFor="room-select" className="block mb-2 font-medium">Selecciona una habitación:</label>
+        <label htmlFor="room-select" className="block mb-2 font-medium">{t('selectRoomLabel')}</label>
         <select
           id="room-select"
           value={selectedRoomId || ''}
@@ -250,7 +249,7 @@ const AdminPanel = () => {
       </div>
 
       <div className="mb-6 flex items-center space-x-4">
-        <label htmlFor="disponible-checkbox" className="font-medium">Disponible</label>
+        <label htmlFor="disponible-checkbox" className="font-medium">{t('disponibleLabel')}</label>
         <input
           type="checkbox"
           id="disponible-checkbox"
@@ -263,38 +262,38 @@ const AdminPanel = () => {
           disabled={savingDisponible}
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
         >
-          {savingDisponible ? 'Guardando...' : 'Guardar'}
+          {savingDisponible ? t('savingText') : t('saveButton')}
         </button>
       </div>
 
       <Calendar reservations={reservations} onDateToggle={handleDateToggle} />
 
       <div className="mt-6">
-        <h2 className="text-2xl font-semibold mb-4">Reservas</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t('reservationsTitle')}</h2>
         {reservations.length === 0 ? (
-          <p>No hay reservas para esta habitación.</p>
+          <p>{t('noReservations')}</p>
         ) : (
           <ul className="space-y-2">
             {reservations.map((res) => (
               <li key={res.id} className="border p-2 rounded flex justify-between items-center">
                 <div>
-                  <p><strong>Cliente:</strong> {res.nombre_cliente}</p>
-                  <p><strong>Email:</strong> {res.email}</p>
-                  <p><strong>Entrada:</strong> {res.fecha_entrada}</p>
-                  <p><strong>Salida:</strong> {res.fecha_salida}</p>
+                  <p><strong>{t('clientLabel')}</strong> {res.nombre_cliente}</p>
+                  <p><strong>{t('emailClientLabel')}</strong> {res.email}</p>
+                  <p><strong>{t('checkInLabel')}</strong> {res.fecha_entrada}</p>
+                  <p><strong>{t('checkOutLabel')}</strong> {res.fecha_salida}</p>
                 </div>
                 <div className="space-x-2">
                   <button
                     onClick={() => handleEditReservation(res)}
                     className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
                   >
-                    Editar
+                    {t('editButton')}
                   </button>
                   <button
                     onClick={() => handleDeleteReservation(res.id)}
                     className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
                   >
-                    Eliminar
+                    {t('deleteButton')}
                   </button>
                 </div>
               </li>
@@ -305,7 +304,7 @@ const AdminPanel = () => {
 
       {selectedReservation && (
         <div className="mt-6 border p-4 rounded bg-gray-50">
-          <h3 className="text-xl font-semibold mb-4">Editar Reserva</h3>
+          <h3 className="text-xl font-semibold mb-4">{t('editReservationTitle')}</h3>
           <ReservationForm
             initialHabitacionId={selectedReservation.habitacion_id}
             initialHabitacionName={rooms.find(r => r.id === selectedReservation.habitacion_id)?.nombre || ''}
@@ -319,7 +318,7 @@ const AdminPanel = () => {
             onClick={() => setSelectedReservation(null)}
             className="mt-4 bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
           >
-            Cancelar
+            {t('cancelButton')}
           </button>
         </div>
       )}
