@@ -4,10 +4,18 @@ import { useState, useEffect } from 'react';
 import { fetchHabitaciones } from '../lib/api';
 
 const roomImages = [
-  '/images/habitacion.png',
-  '/images/habitacion1.png',
-  '/images/habitacion2.png',
-  '/images/habitacionbaño.jpg',
+  '/images/Atarraya y Anzuelo 2.jpg',
+  '/images/Atarraya y Anzuelo.jpg',
+  '/images/El Ave que Pesca.jpg',
+  '/images/Herencia Colonial.jpg',
+  '/images/Las Heliconias 2.jpg',
+  '/images/Mariposa monarca.jpg',
+  '/images/Raíces Campesinas.jpg',
+  '/images/Santuario del Yipao.jpg',
+  '/images/Santuario del Yipao 2.jpg',
+  '/images/Tierra Chanama.jpg',
+  '/images/Tierra de Encanto.jpg',
+  '/images/Tierra de Encanto 2.jpg',
 ];
 
 function Rooms() {
