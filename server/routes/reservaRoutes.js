@@ -4,7 +4,7 @@ const reservaController = require('../controllers/reservaController');
 
 router.get('/', reservaController.getAllReservas);
 router.post('/', reservaController.createReserva);
-router.delete('/habitacion/:habitacion_id', reservaController.deleteReservaByHabitacionId);
+router.delete('/:id', reservaController.deleteReservaById);
 router.get('/habitacion/:habitacion_id', reservaController.getReservasByHabitacionId);
 
 module.exports = router;
