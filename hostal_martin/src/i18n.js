@@ -15,7 +15,7 @@ const resources = {
       // Home.jsx
       homeTitle: "Martín Pescador",
       homeSubtitle: "Casa de Descanso",
-      homeDescription: "Un lugar familiar, ideal para aquellos que desean conocer el municipio y descansar después de una aventura turística y gastronómica. También perfecto para quienes practican ecoturismo y se conectan con el Paisaje Cultural Cafetero. Además, es excelente para quienes llegan al municipio por temporadas laborales y necesitan pernoctar.",
+      homeDescription: "Un lugar familiar, ideal para aquellos que desean conocer el municipio y descansar después de una aventura turística y gastronómica. También perfecto para quienes practican ecoturismo y se conectan con el Paisaje Cultural Cafetero. Además, es excelente para quienes llegan al municipio por temporadas laborales.",
       ourRooms: "Nuestras Habitaciones",
       bookNow: "¡Reserva tu estadía ahora!",
       standardRoomQuote: "Habitación acogedora con vista al jardín",
@@ -38,6 +38,14 @@ const resources = {
       historyText: "Bienvenidos a Casa de Descanso Martín Pescador, un Hostal donde la tranquilidad y la naturaleza se fusionan en una experiencia inolvidable. En este lugar del Paisaje Cultural Cafetero, cada día comienza con el aroma del café y la frescura de la mañana. Inspirado por el legado de un hombre apasionado por la pesca y el campo, este lugar invita a desconectar del mundo moderno y reconectar con lo esencial.",
       ourEnvironment: "Nuestro Entorno",
       environmentText: "Ubicado en una zona residencial tranquila y central del municipio de Caicedonia, Valle del Cauca, el Hostal Martín Pescador ofrece a sus huéspedes una experiencia totalmente diferente. Aunque está dentro de la vida urbana, su ambiente interno está diseñado para transportarte a las tradicionales fincas cafeteras, rodeadas de vegetación exuberante. El verde de las plantas y la calma que se respira evocan recuerdos en los paisajes cafeteros y cordilleranos, donde la naturaleza siempre es la protagonista. Cada espacio del hostal invita al descanso y a reconectar con la tranquilidad.",
+      ourSpace: "Nuestro Espacio",
+      ourSpaceText: "El verde de las plantas y la calma que se respira evocan recuerdos en los paisajes cafeteros y cordilleranos, donde la naturaleza siempre es la protagonista. Cada espacio del hostal invita al descanso y a reconectar con la tranquilidad.",
+      
+      missionVisionTitle: "Misión y Visión",
+      visionTitle: "Visión",
+      visionText: "Aspiramos a ser reconocidos como el destino preferido en el municipio para quienes buscan un lugar de descanso que combina la comodidad urbana con la tranquilidad del hostal. Nos comprometemos a crecer de manera sostenible, ofreciendo un servicio excepcional que fomente el turismo responsable y genere experiencias extraordinarias. Queremos ser un referente en el respeto por el medio ambiente y en la creación de un espacio donde los huéspedes puedan reconectar con la naturaleza, asegurando su regreso continuo.",
+      missionTitle: "Misión",
+      missionText: "Nuestra misión es ofrecer a nuestros huéspedes un espacio donde la tranquilidad del campo se encuentra con la comodidad de lo urbano. A través de una atención cálida y personalizada, brindamos una experiencia de descanso memorable, en un entorno natural que evoca las tradiciones del Paisaje Cultural Cafetero. Promovemos un turismo responsable y sostenible, respetando el medio ambiente, mientras ofrecemos un servicio accesible y de calidad.",
 
       // Contact.jsx
       contact: "Contacto",
@@ -155,7 +163,15 @@ const resources = {
       historyText: "Welcome to Martin Pescador Rest House, a hostel where tranquility and nature blend into an unforgettable experience. In this place within the Coffee Cultural Landscape, each day begins with the aroma of coffee and the freshness of the morning. Inspired by the legacy of a man passionate about fishing and the countryside, this place invites you to disconnect from the modern world and reconnect with the essentials.",
       ourEnvironment: "Our Environment",
       environmentText: "Located in a quiet and central residential area of the Caicedonia municipality, Valle del Cauca, Hostal Martin Pescador offers its guests a completely different experience. Although it’s within the urban life, its internal environment is designed to transport you to traditional coffee farms, surrounded by lush vegetation. The green of the plants and the calm atmosphere evoke memories of coffee and mountain landscapes, where nature is always the protagonist. Every space in the hostel invites rest and reconnection with tranquility.",
-
+      ourSpace: "Our Space",
+      ourSpaceText: "Explore our facilities, enjoy the gardens, and breathe fresh air. Here you can relax, read, walk, or simply enjoy the scenery.",
+  
+      missionVisionTitle: "Mission and Vision",
+      visionTitle: "Vision",
+      visionText: "We aspire to be recognized as the preferred destination in the town for those seeking a place of rest that combines urban comfort with the tranquility of the hostel. We are committed to growing sustainably, offering exceptional service that promotes responsible tourism and creates extraordinary experiences. We aim to be a benchmark in environmental respect and in creating a space where guests can reconnect with nature, ensuring their continued return.",
+      missionTitle: "Mission",
+      missionText: "Our mission is to offer our guests a space where the calm of the countryside meets the comfort of the urban. Through warm and personalized attention, we provide a memorable resting experience in a natural environment that evokes the traditions of the Coffee Cultural Landscape. We promote responsible and sustainable tourism, respecting the environment while offering accessible and quality service.",
+      
       // Contact.jsx
       contact: "Contact",
       contactInfo: "Contact Information",

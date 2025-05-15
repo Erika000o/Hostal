@@ -1,19 +1,40 @@
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Gallery from '../components/Gallery';
 import { VelocityScroll } from '../components/ui/VelocityScroll';
 import { fetchHabitaciones } from '../lib/api';
+
+const roomImages = [
+  '/images/Atarraya y Anzuelo 2.jpg',
+  '/images/Atarraya y Anzuelo.jpg',
+  '/images/El Ave que Pesca.jpg',
+  '/images/Herencia Colonial.jpg',
+  '/images/Las Heliconias 2.jpg',
+  '/images/Mariposa monarca.jpg',
+  '/images/Raíces Campesinas.jpg',
+  '/images/Santuario del Yipao.jpg',
+  '/images/Santuario del Yipao 2.jpg',
+  '/images/Tierra Chanama.jpg',
+  '/images/Tierra de Encanto.jpg',
+  '/images/Tierra de Encanto 2.jpg',
+];
 
 function Home() {
   const { t } = useTranslation();
   const [habitaciones, setHabitaciones] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetchHabitaciones();
-        setHabitaciones(response.data);
+        const roomsWithImages = response.data.map((room, index) => ({
+          ...room,
+          src: roomImages[index % roomImages.length],
+        }));
+        setHabitaciones(roomsWithImages);
       } catch (error) {
         console.error('Error al obtener las habitaciones:', error);
       }
@@ -31,26 +52,27 @@ function Home() {
 
   const selectedRoom = habitaciones[selectedIndex] || {};
 
-  // Función para formatear precio en COP
   const formatPrice = (price) => {
     return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(price);
   };
 
-  return (
-    <div className="container mx-auto p-4 relative">
-      <h1 className="mb-4">
-        <span className="font-['Pacifico'] text-4xl">{t('homeTitle')}</span>
-        <br />
-        <span className="font-['Raleway'] font-medium text-2xl">--{t('homeSubtitle')}--</span>
-      </h1>
-      <p className="mb-4">{t('homeDescription')}</p>
+  const handleSelectRoom = (room) => {
+    navigate('/rooms', { state: { selectedRoom: room } });
+  };
 
-      <div className="my-12">
+  return (
+    <div className="container mx-auto p-14 relative">
+      <p className="mb-3">{t('homeDescription')}</p>
+
+      <div className="my-10">
         <h2 className="text-3xl font-bold mb-8 text-center">{t('ourRooms')}</h2>
 
         {habitaciones.length > 0 && (
           <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-lg shadow-lg overflow-hidden">
+            <div
+              className="relative w-64 h-64 md:w-96 md:h-96 rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              onClick={() => handleSelectRoom(selectedRoom)}
+            >
               <img
                 src={selectedRoom.src || '/images/habitacionbaño.jpg'}
                 alt={t(selectedRoom.nombre || '')}
@@ -58,7 +80,12 @@ function Home() {
               />
             </div>
             <div className="max-w-md">
-              <h3 className="text-2xl font-semibold mb-2">{t(selectedRoom.nombre || '')}</h3>
+              <h3
+                className="text-2xl font-semibold mb-2 cursor-pointer text-blue-600 hover:underline"
+                onClick={() => handleSelectRoom(selectedRoom)}
+              >
+                {t(selectedRoom.nombre || '')}
+              </h3>
               <p className="text-gray-600 mb-2">
                 {selectedRoom.capacidad} {selectedRoom.capacidad === 1 ? 'persona' : 'personas'}
               </p>
@@ -76,6 +103,12 @@ function Home() {
                   className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                 >
                   &rarr;
+                </button>
+                <button
+                  onClick={() => handleSelectRoom(selectedRoom)}
+                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                >
+                  {t('viewDetails')}
                 </button>
               </div>
             </div>
