@@ -79,7 +79,7 @@ function Rooms() {
             >
               {selected.images.map((img, index) => (
                 <SwiperSlide key={index}>
-                  <img src={img} alt={`Imagen ${index + 1}`} className="w-full h-64 object-cover rounded-lg" />
+                  <img src={img} alt={`Imagen ${index + 1}`} className="w-96 h-92 object-cover object-center rounded-lg" style={{ objectPosition: 'center center' }} />
                 </SwiperSlide>
               ))}
             </Swiper>

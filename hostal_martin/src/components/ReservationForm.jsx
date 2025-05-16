@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createReserva } from '../lib/api';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '', initialFechaEntrada = '', initialFechaSalida = '' }) {
   const [formData, setFormData] = useState({
@@ -31,19 +33,39 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
     try {
       // Crear la reserva en el sistema
       await createReserva(formData);
-      alert('Reserva creada con éxito');
+      
+    // Notificación de éxito con estilos personalizados
+    toast.success('¡Reserva creada con éxito!', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'colored'
+    });
 
-      // Construir el mensaje para WhatsApp
-      const whatsappMessage = `NUEVA RESERVA:\n Hola \n quiero reservar la: ${habitacionName}\n  A nombre de: ${formData.nombre_cliente}\n  Para la fecha del: ${formData.fecha_entrada} al ${formData.fecha_salida}\n  Email: ${formData.email}`;
-      const whatsappUrl = `https://wa.me/573187752351?text=${encodeURIComponent(whatsappMessage)}`;
+    // Construir el mensaje para WhatsApp
+    const whatsappMessage = `NUEVA RESERVA:\n Hola \n quiero reservar la: ${habitacionName}\n  A nombre de: ${formData.nombre_cliente}\n  Para la fecha del: ${formData.fecha_entrada} al ${formData.fecha_salida}\n  Email: ${formData.email}`;
+    const whatsappUrl = `https://wa.me/573187752351?text=${encodeURIComponent(whatsappMessage)}`;
 
-      // Abrir WhatsApp en una nueva pestaña
-      window.open(whatsappUrl, '_blank');
-    } catch (error) {
-      console.error('Error al crear la reserva:', error);
-      alert('Error al crear la reserva. Por favor, inténtalo de nuevo.');
-    }
-  };
+    // Abrir WhatsApp en una nueva pestaña
+    window.open(whatsappUrl, '_blank');
+      } catch (error) {
+    console.error('Error al crear la reserva:', error);
+    
+    // Notificación de error con estilos personalizados
+    toast.error('Error al crear la reserva. Por favor, inténtalo de nuevo.', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'colored'
+    });
+  }
+};
 
   return (
     <div className="border p-4 rounded">
@@ -121,7 +143,9 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
           Enviar Reserva
         </button>
       </form>
+      <ToastContainer /> 
     </div>
+  
   );
 }
 

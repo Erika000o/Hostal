@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -9,6 +11,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,18 +23,41 @@ const Login = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (!response.ok) {
         throw new Error(data.error || t('loginError'));
       }
-
+  
       localStorage.setItem('token', data.token);
-      alert(t('loginSuccess'));
-      navigate('/admin'); // Navegar a la vista de administrador
-    } catch (err) {
-      setError(err.message);
+      
+      // Notificación de éxito
+      toast.success('Inicio de sesión exitoso', {
+        position: 'top-right',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored'
+      });
+
+      setTimeout(() => {
+        navigate('/admin');
+      }, 1000);
+    } catch (error) {
+      // Notificación de error
+      toast.error(error.message || 'Error en el inicio de sesión', {
+        position: 'top-right',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored'
+      });
+      setError(error.message);
     } finally {
       setLoading(false);
     }
@@ -73,6 +99,7 @@ const Login = () => {
             {loading ? t('loadingText') : t('loginButton')}
           </button>
         </form>
+        <ToastContainer />
       </div>
     </div>
   );
