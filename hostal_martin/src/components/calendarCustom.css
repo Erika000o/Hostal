@@ -1,0 +1,62 @@
+/* Estilo general del calendario */
+.react-calendar {
+    border: none;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Celdas del calendario */
+  .react-calendar__tile {
+    padding: 0.75rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Hover */
+  .react-calendar__tile:enabled:hover {
+    background-color: #e0f2f1;
+    color: #111827;
+  }
+  
+  /* Selección activa */
+  .react-calendar__tile--active {
+    background-color: #da8166 !important;
+    color: white !important;
+  }
+  
+  /* Fechas reservadas */
+  .reserved-date {
+    background-color: #699cdb !important; /* slate-300 */ /* <-- Color de fondo para fechas reservadas */
+    color: #113970 !important;            /* gray-800 */  /* <-- Color del texto */
+    border-radius: 9999px !important;
+    font-weight: bold;
+    pointer-events: none; /* Evita selección */
+    opacity: 0.6;
+  }
+  
+  /* Ocultar bordes del calendario */
+  .react-calendar__navigation {
+    margin-bottom: 1rem;
+  }
+  
+  /* Mejoras en los botones de navegación */
+  .react-calendar__navigation button {
+    background: none;
+    color: #374151;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  /* Días de la semana */
+  .react-calendar__month-view__weekdays {
+    text-align: center;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  

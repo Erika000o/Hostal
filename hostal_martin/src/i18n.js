@@ -202,6 +202,9 @@ const resources = {
       checkIn: "Check-in Date",
       checkOut: "Check-out Date",
       selectRange: "Please select a date range.",
+      reserved: "Reservado",
+      available: "Disponible",
+      
       // Admin.jsx
       loginTitle: "Login",
       contactEmailLabel: "Email:",

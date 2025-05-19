@@ -34,13 +34,13 @@ function Reservations() {
           Authorization: `Bearer ${token}`,
         },
       });
-      
+
       if (!response.ok) throw new Error('Error al obtener habitaciones');
-      
+
       const result = await response.json();
       if (!result.success) throw new Error('Error en la respuesta de habitaciones');
       if (!Array.isArray(result.data)) throw new Error('La respuesta no es un array');
-      
+
       setRooms(result.data);
       if (result.data.length > 0) {
         setSelectedRoom(result.data[0]);
@@ -61,24 +61,22 @@ function Reservations() {
           Authorization: `Bearer ${token}`,
         },
       });
-      
+
       if (!response.ok) throw new Error('Error al obtener reservas');
-      
+
       const result = await response.json();
       if (!result.success) throw new Error('Error en la respuesta de reservas');
-      
-      // Formateamos las reservas para asegurar compatibilidad
+
       const formattedReservations = result.data.map(res => ({
         ...res,
         fecha_entrada: res.fecha_entrada || res.start_date,
         fecha_salida: res.fecha_salida || res.end_date,
         habitacion_id: res.habitacion_id || res.room_id
       }));
-      
-      // Filtramos por habitación seleccionada
+
       const filtered = formattedReservations.filter(r => r.habitacion_id === roomId);
       setReservations(filtered);
-      
+
     } catch (err) {
       setError(err.message);
     } finally {
@@ -92,52 +90,54 @@ function Reservations() {
     setSelectedRoom(room);
   };
 
-  // Función para manejar clics en fechas del calendario
   const handleDateToggle = (date, isReserved) => {
     console.log('Fecha clickeada:', date, 'Reservada:', isReserved);
-    // Aquí puedes añadir lógica adicional si necesitas
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">{t('reservations')}</h1>
+    <div className="flex justify-center py-10 px-4">
+      <div className="flex flex-col md:flex-row gap-10 max-w-7xl w-full items-start">
+        {/* 👉 Selector + Calendario a la izquierda */}
+        <div className="w-full md:w-1/2">
+          <h1 className="text-3xl font-bold mb-6">{t('reservations')}</h1>
 
-      {error && <p className="text-red-600 mb-4">{error}</p>}
-      {loading && <p className="mb-4">Cargando...</p>}
+          {error && <p className="text-red-600 mb-4">{error}</p>}
+          {loading && <p className="mb-4">Cargando...</p>}
 
-      <div className="mb-6">
-        <label htmlFor="room-select" className="block mb-2 font-medium">
-          Selecciona una habitación:
-        </label>
-        <select
-          id="room-select"
-          value={selectedRoom?.id || ''}
-          onChange={handleRoomChange}
-          className="border p-2 rounded w-full max-w-xs"
-          disabled={loading}
-        >
-          {rooms.map(room => (
-            <option key={room.id} value={room.id}>
-              {room.nombre} (ID: {room.id})
-            </option>
-          ))}
-        </select>
-      </div>
+          <label htmlFor="room-select" className="block mb-2 font-medium text-gray-700">
+            Selecciona una habitación:
+          </label>
+          <select
+            id="room-select"
+            value={selectedRoom?.id || ''}
+            onChange={handleRoomChange}
+            className="border border-gray-300 p-2 rounded w-full max-w-xs mb-6"
+            disabled={loading}
+          >
+            {rooms.map(room => (
+              <option key={room.id} value={room.id}>
+                {room.nombre}
+              </option>
+            ))}
+          </select>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="calendar-container">
-          <Calendar 
+          <Calendar
             reservations={reservations}
-            isCalendarioData={false}  // Cambia a true si tu API usa formato simple { fecha }
+            isCalendarioData={false}
             onDateToggle={handleDateToggle}
           />
         </div>
-        
-        <ReservationForm
-          initialHabitacionId={selectedRoom?.id || ''}
-          initialHabitacionName={selectedRoom?.nombre || ''}
-          roomReservations={reservations}
-        />
+
+        {/* 👉 Formulario más a la derecha, centrado vertical y con buen ancho */}
+        <div className="w-full md:w-1/2 md:pl-4">
+          <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-xl mx-auto">
+            <ReservationForm
+              initialHabitacionId={selectedRoom?.id || ''}
+              initialHabitacionName={selectedRoom?.nombre || ''}
+              roomReservations={reservations}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -31,55 +31,43 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Crear la reserva en el sistema
       await createReserva(formData);
-      
-    // Notificación de éxito con estilos personalizados
-    toast.success('¡Reserva creada con éxito!', {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: 'colored'
-    });
 
-    // Construir el mensaje para WhatsApp
-    const whatsappMessage = `NUEVA RESERVA:\n Hola \n quiero reservar la: ${habitacionName}\n  A nombre de: ${formData.nombre_cliente}\n  Para la fecha del: ${formData.fecha_entrada} al ${formData.fecha_salida}\n  Email: ${formData.email}`;
-    const whatsappUrl = `https://wa.me/573187752351?text=${encodeURIComponent(whatsappMessage)}`;
+      toast.success('¡Reserva creada con éxito!', {
+        position: 'top-right',
+        autoClose: 3000,
+        theme: 'colored',
+      });
 
-    // Abrir WhatsApp en una nueva pestaña
-    window.open(whatsappUrl, '_blank');
-      } catch (error) {
-    console.error('Error al crear la reserva:', error);
-    
-    // Notificación de error con estilos personalizados
-    toast.error('Error al crear la reserva. Por favor, inténtalo de nuevo.', {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: 'colored'
-    });
-  }
-};
+      const whatsappMessage = `NUEVA RESERVA:\n Hola \n quiero reservar la: ${habitacionName}\n  A nombre de: ${formData.nombre_cliente}\n  Para la fecha del: ${formData.fecha_entrada} al ${formData.fecha_salida}\n  Email: ${formData.email}`;
+      const whatsappUrl = `https://wa.me/573187752351?text=${encodeURIComponent(whatsappMessage)}`;
+
+      window.open(whatsappUrl, '_blank');
+    } catch (error) {
+      console.error('Error al crear la reserva:', error);
+      toast.error('Error al crear la reserva. Por favor, inténtalo de nuevo.', {
+        position: 'top-right',
+        autoClose: 3000,
+        theme: 'colored',
+      });
+    }
+  };
 
   return (
-    <div className="border p-4 rounded">
-      <h2 className="text-xl font-semibold mb-2">Formulario de Reserva</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="bg-white shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-xl mx-auto">
+      <h2 className="text-2xl font-bold text-center text-green-700 mb-6">Formulario de Reserva</h2>
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="habitacion_name" className="block">Habitación</label>
+          <label htmlFor="habitacion_name" className="block text-sm font-medium text-gray-700 mb-1">
+            Habitación
+          </label>
           <input
             type="text"
             id="habitacion_name"
             name="habitacion_name"
             value={habitacionName}
             readOnly
-            className="w-full border p-2 rounded bg-gray-100"
+            className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2"
           />
           <input
             type="hidden"
@@ -88,64 +76,76 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
             value={formData.habitacion_id}
           />
         </div>
+
         <div>
-          <label htmlFor="nombre_cliente" className="block">Nombre</label>
+          <label htmlFor="nombre_cliente" className="block text-sm font-medium text-gray-700 mb-1">
+            Nombre
+          </label>
           <input
             type="text"
             id="nombre_cliente"
             name="nombre_cliente"
             value={formData.nombre_cliente}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             required
           />
         </div>
+
         <div>
-          <label htmlFor="email" className="block">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            Email
+          </label>
           <input
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             required
           />
         </div>
+
         <div>
-          <label htmlFor="fecha_entrada" className="block">Fecha de Entrada</label>
+          <label htmlFor="fecha_entrada" className="block text-sm font-medium text-gray-700 mb-1">
+            Fecha de Entrada
+          </label>
           <input
             type="date"
             id="fecha_entrada"
             name="fecha_entrada"
             value={formData.fecha_entrada}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             required
           />
         </div>
+
         <div>
-          <label htmlFor="fecha_salida" className="block">Fecha de Salida</label>
+          <label htmlFor="fecha_salida" className="block text-sm font-medium text-gray-700 mb-1">
+            Fecha de Salida
+          </label>
           <input
             type="date"
             id="fecha_salida"
             name="fecha_salida"
             value={formData.fecha_salida}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             required
           />
         </div>
+
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition duration-300"
         >
           Enviar Reserva
         </button>
       </form>
-      <ToastContainer /> 
+      <ToastContainer />
     </div>
-  
   );
 }
 
