@@ -43,25 +43,25 @@ function Calendar({ reservations, isCalendarioData = false }) {
     <div className="bg-white shadow-md rounded-lg p-6">
       <h2 className="text-xl font-semibold mb-4">{t('selectDates')}</h2>
 
-      <div className="custom-calendar-wrapper">
+      <div className="custom-calendar-wrapper w-full max-w-2xl mx-auto">
         <ReactCalendar
           onChange={setDate}
           value={date}
           selectRange={true}
           minDate={new Date()}
           tileClassName={tileClassName}
-          className="rounded-lg p-2"
+          className="rounded-3xl p-3"
         />
       </div>
 
       {/* Leyenda moderna */}
-      <div className="flex gap-6 mt-6 text-sm items-center justify-center">
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-4 h-4 bg-gray-300 rounded-full border border-gray-400"></span>
+      <div className="flex flex-wrap gap-x-10 gap-y-4 mt-8 text-base items-center justify-center">
+        <div className="flex items-center gap-3 px-2 py-1">
+          <span className="inline-block w-5 h-5 bg-gray-300 rounded-full border border-gray-400"></span>
           <span className="text-gray-700">{t('reserved')}</span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-4 h-4 bg-white border border-gray-400 rounded-full"></span>
+        <div className="flex items-center gap-3 px-2 py-1">
+          <span className="inline-block w-5 h-5 bg-white border border-gray-400 rounded-full"></span>
           <span className="text-gray-700">{t('available')}</span>
         </div>
       </div>
@@ -69,8 +69,8 @@ function Calendar({ reservations, isCalendarioData = false }) {
       {/* Estilos personalizados */}
       <style>{`
         .reserved-date {
-          background-color: #699cdb !important;  /* slate-300 */
-          color: #1f2937 !important;            /* gray-800 */
+          background-color: #699cdb !important;
+          color: #1f2937 !important;
           border-radius: 9999px !important;
           font-weight: bold;
         }
@@ -78,10 +78,12 @@ function Calendar({ reservations, isCalendarioData = false }) {
         .react-calendar {
           border: none;
           font-family: Arial, sans-serif;
+          font-size: 1.1rem; /* Aumenta el tamaño de fuente */
+          max-width: 100%;    /* Asegura que use el espacio disponible */
         }
 
         .react-calendar__tile {
-          padding: 0.75rem 0.5rem;
+          padding: 1rem 0.75rem; /* Más padding para celdas */
           border-radius: 0.5rem;
           transition: background 0.3s ease;
         }

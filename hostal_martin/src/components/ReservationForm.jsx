@@ -54,11 +54,12 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
   };
 
   return (
-    <div className="bg-white shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-xl mx-auto">
-      <h2 className="text-2xl font-bold text-center text-green-700 mb-6">Formulario de Reserva</h2>
+    <div className="bg-white shadow-2xl rounded-2xl p-8 md:p-10 w-full max-w-2xl mx-auto text-[24px]">
+
+      <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Formulario de Reserva</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="habitacion_name" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="habitacion_name" className="block text-2xl font-medium text-gray-700 mb-1">
             Habitación
           </label>
           <input
@@ -78,7 +79,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
         </div>
 
         <div>
-          <label htmlFor="nombre_cliente" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="nombre_cliente" className="block text-2xl font-medium text-gray-700 mb-1">
             Nombre
           </label>
           <input
@@ -93,7 +94,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="email" className="block text-2xl font-medium text-gray-700 mb-1">
             Email
           </label>
           <input
@@ -108,7 +109,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
         </div>
 
         <div>
-          <label htmlFor="fecha_entrada" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="fecha_entrada" className="block text-2xl font-medium text-gray-700 mb-1">
             Fecha de Entrada
           </label>
           <input
@@ -123,7 +124,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
         </div>
 
         <div>
-          <label htmlFor="fecha_salida" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="fecha_salida" className="block text-2xl font-medium text-gray-700 mb-1">
             Fecha de Salida
           </label>
           <input

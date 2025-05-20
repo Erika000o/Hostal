@@ -154,7 +154,7 @@ function Rooms() {
               </p>
               <button
                 onClick={() => setSelected(room)}
-                className="bg-emerald-500 text-white px-4 py-2 rounded hover:bg-emerald-600 w-full transition"
+                className="bg-rojoHostal text-white px-4 py-2 rounded hover:bg-red-600 w-full transition"
               >
                 {t('viewDetails')}
               </button>

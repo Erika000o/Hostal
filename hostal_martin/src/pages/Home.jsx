@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Gallery from '../components/Gallery';
-import { VelocityScroll } from '../components/ui/VelocityScroll';
+// import { VelocityScroll } from '../components/ui/VelocityScroll';
 import { fetchHabitaciones } from '../lib/api';
 
 const roomImages = [
@@ -62,7 +62,7 @@ function Home() {
 
   return (
     <div className="container mx-auto p-14 relative">
-      <p className="mb-3">{t('homeDescription')}</p>
+      <p className="mb-3 text-2xl">{t('homeDescription')}</p>
 
       <div className="my-10">
         <h2 className="text-3xl font-bold mb-8 text-center">{t('ourRooms')}</h2>
@@ -81,16 +81,16 @@ function Home() {
             </div>
             <div className="max-w-md">
               <h3
-                className="text-2xl font-semibold mb-2 cursor-pointer text-blue-600 hover:underline"
+                className="text-3xl font-semibold mb-2 cursor-pointer text-red-600 hover:underline"
                 onClick={() => handleSelectRoom(selectedRoom)}
               >
                 {t(selectedRoom.nombre || '')}
               </h3>
-              <p className="text-gray-600 mb-2">
-                {selectedRoom.capacidad} {selectedRoom.capacidad === 1 ? 'persona' : 'personas'}
+              <p className="text-gray-600 mb-2 text-2xl">
+                {selectedRoom.capacidad} {selectedRoom.capacidad === 1 ? 'persona' : 'Personas'}
               </p>
-              <p className="text-gray-800 font-bold mb-4">{formatPrice(selectedRoom.precio || 0)}</p>
-              <p className="text-gray-500 italic mb-4">{t(selectedRoom.quote || '')}</p>
+              <p className="text-gray-800 font-bold mb-4 text-2xl">{formatPrice(selectedRoom.precio || 0)}</p>
+              <p className="text-gray-500 italic mb-4 text-2xl">{t(selectedRoom.quote || '')}</p>
               <div className="flex gap-4">
                 <button
                   onClick={prevRoom}
@@ -106,7 +106,7 @@ function Home() {
                 </button>
                 <button
                   onClick={() => handleSelectRoom(selectedRoom)}
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                  className="bg-rojoHostal text-white px-4 py-2 rounded hover:bg-rojoHostal text-lg"
                 >
                   {t('viewDetails')}
                 </button>
@@ -116,11 +116,60 @@ function Home() {
         )}
       </div>
 
-      <div className="my-12">
-        <VelocityScroll className="text-center">{t('bookNow')}</VelocityScroll>
-      </div>
+      {/* <div className="my-10">
+        <VelocityScroll className="text-center ">{t('bookNow')}</VelocityScroll>
+      </div> */}
+
 
       <Gallery />
+      {/* Sección sobre el Martín Pescador */}
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 my-16">
+      <div className="w-full lg:w-[45%]">
+          <img
+            src="/images/martin2.jpg" 
+            alt="Martín Pescador Grande"
+            className="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div className="w-full lg:w-1/2">
+          <h3 className="text-3xl font-bold mb-4 text-rojoHostal">{t('whyRoomQuote')}</h3>
+          <p className="text-black mb-3 text-2xl">
+            {t('whyRoomDescription')}
+            <br /><br />
+            {t('whyRoomDescription2')}
+            <br /><br />
+            {t('whyRoomDescription3')}
+            <br /><br />
+            
+          </p>
+        </div>
+      </div>
+
+      {/* Sección sobre la despulpadora */}
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 my-16">
+        <div className="w-full lg:w-1/2">
+          <h3 className="text-3xl font-bold mb-4 text-rojoHostal">{t('coffeeMachine')}</h3>
+          <p className="text-black mb-3 text-2xl">
+            {t('coffeeMachineDescription')}
+            <br /><br />
+            {t('coffeeMachineDescription2')}
+            <br /><br />
+            {t('coffeeMachineDescription3')}
+            <br /><br />
+            {t('coffeeMachineDescription4')}
+            <br /><br />
+            {t('coffeeMachineDescription5')}
+          </p>
+        </div>
+        <div className="w-full lg:w-[30%]">
+          <img
+            src="/images/MaquinaCafe.jpg" 
+            alt="Despulpadora de café Bonasa #4"
+            className="overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </div>
+      
     </div>
   );
 }

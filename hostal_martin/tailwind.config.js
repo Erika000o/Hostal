@@ -15,6 +15,7 @@ module.exports = {
           DEFAULT: '#1e40af', // azul-800
           light: '#3b82f6', // azul-500
         },
+        rojoHostal: '#d51c22',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

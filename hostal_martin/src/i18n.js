@@ -30,6 +30,17 @@ const resources = {
       familyRoomQuote: "Habitación familiar con espacio amplio",
       familyRoomName: "Habitación Familiar",
       familyRoomDesignation: "4 personas",
+      whyRoomQuote: "¿Por qué Martín Pescador?",
+      whyRoomDescription: "El nombre de nuestro hostal rinde homenaje al Martín Pescador Grande (Megaceryle torquata), un ave fascinante que habita en las cercanías de ríos, lagunas y costas de América Latina.",
+      whyRoomDescription2: "Este hermoso pájaro, con su plumaje azul grisáceo y su pecho color ladrillo, es conocido por su increíble habilidad para lanzarse al agua y capturar peces con gran precisión.",
+      whyRoomDescription3: "Así como el martín pescador elige cuidadosamente su sitio para observar el entorno y disfrutar de la naturaleza, queremos que tú también encuentres en nuestro hostal un lugar perfecto para descansar, conectar con lo natural y vivir una experiencia tranquila y acogedora.",
+
+      coffeeMachine: "Nuestra Despulpadora de Café Bonasa #4",
+      coffeeMachineDescription: "Un símbolo de tradición, trabajo y pasión por el café.",
+      coffeeMachineDescription2: "En un rincón especial de nuestro hostal se encuentra una despulpadora manual de café Bonasa #4, una máquina de tres chorros que ha sido testigo de madrugadas llenas de esfuerzo y aroma a grano fresco.",
+      coffeeMachineDescription3: "Esta despulpadora, utilizada tradicionalmente en fincas cafeteras, representa más que un simple proceso: es la historia del campo, de las manos que cultivan y transforman el fruto en lo que conocemos como café.",
+      coffeeMachineDescription4: "Al hospedarte con nosotros, no solo descansas; te conectas con la esencia del café, desde su origen hasta tu taza.",
+      coffeeMachineDescription5: "Porque cada detalle en el Hostal Martín Pescador te habla, te cuenta algo, y esta máquina es un homenaje a la dedicación que hay detrás de cada sorbo.",
 
       // About.jsx
       about: "Sobre Nosotros",
