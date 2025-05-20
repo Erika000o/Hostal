@@ -69,7 +69,7 @@ function Rooms() {
       <h1 className="text-3xl font-bold mb-6 text-center text-emerald-700">{t('rooms')}</h1>
 
       {selected && (
-        <div className="mb-6 p-6 border rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-6 bg-white">
+        <div className="mb-6 p-6 border rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-9 bg-white">
           <div className="w-full md:w-1/2">
             <Swiper
               modules={[Navigation, Pagination]}
@@ -79,7 +79,11 @@ function Rooms() {
             >
               {selected.images.map((img, index) => (
                 <SwiperSlide key={index}>
-                  <img src={img} alt={`Imagen ${index + 1}`} className="w-96 h-92 object-cover object-center rounded-lg" style={{ objectPosition: 'center center' }} />
+                  <img 
+                    src={img} 
+                    alt={`Imagen ${index + 1}`} 
+                    className="w-full h-auto max-h-96 mx-auto object-cover rounded-lg"
+                  />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -96,7 +100,7 @@ function Rooms() {
             </p>
             <button
               onClick={() => handleReserve(selected)}
-              className="bg-emerald-600 text-white px-6 py-2 rounded hover:bg-emerald-700 transition"
+              className="bg-rojoHostal text-white px-6 py-2 rounded hover:bg-emerald-700 transition"
             >
               {t('reserveNow')}
             </button>
@@ -104,28 +108,28 @@ function Rooms() {
             <div className="mt-4 space-y-2 text-gray-700">
               <div className="flex items-center gap-2">
                 <FaMapMarkerAlt size={18} />
-                <span>{t('Lo que ofrece el hostal')}</span>
+                <span>{t('ofrece')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <FaWifi size={18} />
-                <span>{t('Wifi gratis')}</span>
+                <span>{t('wifi')}</span>
               </div>
             </div>
 
             <div className="mt-6">
-              <h3 className="text-lg font-semibold mb-2">{t('Pregunta por:')}</h3>
+              <h3 className="text-lg font-semibold mb-2">{t('preguntaPor')}</h3>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-center gap-2">
                   <FaMapMarkerAlt size={18} />
-                  <span>{t('Rutas de ecoturismo guiadas por operadores locales.')}</span>
+                  <span>{t('ruta')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <FaUtensils size={18} />
-                  <span>{t('Recorrido cultural por la ciudad y gastronomía local.')}</span>
+                  <span>{t('recorrido')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <FaBinoculars size={18} />
-                  <span>{t('Observación de aves.')}</span>
+                  <span>{t('aves')}</span>
                 </li>
               </ul>
             </div>

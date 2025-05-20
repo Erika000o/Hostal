@@ -82,6 +82,14 @@ const resources = {
       familyRoomPrice: "$200,000 COP",
       viewDetails: "Ver Detalles",
       reserveNow: "Reservar Ahora",
+      wifi: "Wifi",
+      preguntaPor: "Pregunta por:",
+      ofrece: "Lo que ofrece el hostal",
+      ruta: "Rutas de ecoturismo guiadas por operadores locales.",
+      recorrido: "Recorrido cultural por la ciudad y gastronomía local.",
+      aves: "Observación de aves.",
+      
+
 
       // Calendar.jsx
       selectDates: "Selecciona tus fechas",
@@ -166,6 +174,17 @@ const resources = {
       familyRoomQuote: "Family room with spacious area",
       familyRoomName: "Family Room",
       familyRoomDesignation: "4 people",
+      whyRoomQuote: "Why Martin Pescador?",
+      whyRoomDescription: "Our hostel's name pays homage to the Great Kingfisher (Megaceryle torquata), a fascinating bird that inhabits the areas near rivers, lagoons, and coasts of Latin America.",
+      whyRoomDescription2: "This beautiful bird, with its grayish-blue plumage and brick-colored chest, is known for its incredible ability to dive into the water and catch fish with great precision.",
+      whyRoomDescription3: "Just as the kingfisher carefully chooses its spot to observe the surroundings and enjoy nature, we want you to find in our hostel a perfect place to rest, connect with nature, and experience tranquility and warmth.",
+
+      coffeeMachine: "Our Bonasa #4 Coffee Pulper",
+      coffeeMachineDescription: "A symbol of tradition, work, and passion for coffee.",
+      coffeeMachineDescription2: "In a special corner of our hostel, you'll find a manual Bonasa #4 coffee pulper, a three-spout machine that has witnessed early mornings filled with effort and the fresh aroma of coffee beans.",
+      coffeeMachineDescription3: "This pulper, traditionally used on coffee farms, represents more than just a simple process: it's the story of the countryside, of the hands that cultivate and transform the fruit into what we know as coffee.",
+      coffeeMachineDescription4: "When you stay with us, you don't just rest; you connect with the essence of coffee, from its origin to your cup.",
+      coffeeMachineDescription5: "Because every detail at Martin Pescador Hostel speaks to you, tells you something, and this machine is a tribute to the dedication behind every sip.",
 
       // About.jsx
       about: "About Us",
@@ -182,7 +201,9 @@ const resources = {
       visionText: "We aspire to be recognized as the preferred destination in the town for those seeking a place of rest that combines urban comfort with the tranquility of the hostel. We are committed to growing sustainably, offering exceptional service that promotes responsible tourism and creates extraordinary experiences. We aim to be a benchmark in environmental respect and in creating a space where guests can reconnect with nature, ensuring their continued return.",
       missionTitle: "Mission",
       missionText: "Our mission is to offer our guests a space where the calm of the countryside meets the comfort of the urban. Through warm and personalized attention, we provide a memorable resting experience in a natural environment that evokes the traditions of the Coffee Cultural Landscape. We promote responsible and sustainable tourism, respecting the environment while offering accessible and quality service.",
-      
+
+
+
       // Contact.jsx
       contact: "Contact",
       contactInfo: "Contact Information",
@@ -207,6 +228,13 @@ const resources = {
       familyRoomPrice: "$200,000 COP",
       viewDetails: "View Details",
       reserveNow: "Reserve Now",
+      wifi: "Wifi",
+      ofrece: "What the hostel offers",
+      ruta: "Guided ecotourism routes by local operators.",
+      recorrido: "Cultural tour of the city and local gastronomy.",
+      aves: "Bird watching.",
+      preguntaPor: "Ask for:",
+
 
       // Calendar.jsx
       selectDates: "Select your dates",

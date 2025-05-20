@@ -54,7 +54,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
   };
 
   return (
-    <div className="bg-white shadow-2xl rounded-2xl p-8 md:p-10 w-full max-w-2xl mx-auto text-[24px]">
+    <div className="bg-white shadow-2xl rounded-2xl p-8 md:p-10 w-full max-w-2xl mx-auto text-[18px]">
 
       <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Formulario de Reserva</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
