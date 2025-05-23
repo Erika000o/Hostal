@@ -38,6 +38,16 @@ function Footer() {
           <span className="mt-2 text-2xl">{t('Atencion al Usuario')}</span>
         </a>
         <a
+          href="https://www.instagram.com/biora_turismo?igsh=MWMxdGttcDExNndveQ%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="hover:opacity-80 flex flex-col items-center"
+        >
+          <img src="/images/Biora logo blanco .png" alt={t('biora')} className="w-16 h-16" />
+          <span className="mt-2 text-2xl">{t('Biora aliado turistico')}</span>
+        </a>
+        <a
           href="https://g.page/r/CYKoK1MhLj1tEAE/review"
           target="_blank"
           rel="noopener noreferrer"

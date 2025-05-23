@@ -44,7 +44,7 @@ const resources = {
 
       // About.jsx
       about: "Sobre Nosotros",
-      aboutWelcome: "Bienvenidos a Casa de Descanso Martín Pescador, un Hostal donde la tranquilidad y la naturaleza se fusionan en una experiencia inolvidable.",
+      aboutWelcome: "¿Recuerdas esa paz de la infancia cuando todo era sencillo? Así se siente dormir en Martín Pescador: como volver a casa.",
       history: "Historia",
       historyText: "Bienvenidos a Casa de Descanso Martín Pescador, un Hostal donde la tranquilidad y la naturaleza se fusionan en una experiencia inolvidable. En este lugar del Paisaje Cultural Cafetero, cada día comienza con el aroma del café y la frescura de la mañana. Inspirado por el legado de un hombre apasionado por la pesca y el campo, este lugar invita a desconectar del mundo moderno y reconectar con lo esencial.",
       ourEnvironment: "Nuestro Entorno",
@@ -188,7 +188,7 @@ const resources = {
 
       // About.jsx
       about: "About Us",
-      aboutWelcome: "Welcome to Martin Pescador Rest House, a hostel where tranquility and nature blend into an unforgettable experience.",
+      aboutWelcome: "Remember that childhood peace when everything was simple? That's how it feels to sleep at Martin Pescador: like coming home.",
       history: "History",
       historyText: "Welcome to Martin Pescador Rest House, a hostel where tranquility and nature blend into an unforgettable experience. In this place within the Coffee Cultural Landscape, each day begins with the aroma of coffee and the freshness of the morning. Inspired by the legacy of a man passionate about fishing and the countryside, this place invites you to disconnect from the modern world and reconnect with the essentials.",
       ourEnvironment: "Our Environment",

@@ -29,6 +29,10 @@
   h3 {
     @apply text-xl font-semibold mb-3;
   }
+  body {
+    cursor: url('/images/puntero.jpeg'), auto;
+  }
+  
 }
 
 @layer components {
