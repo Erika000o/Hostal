@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import ReactCalendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './calendarCustom.css'; // Importamos nuestros estilos personalizados opcionalmente
-
-function Calendar({ reservations, isCalendarioData = false }) {
+//cambiar False por True para mostrar habitaciones Reservadas                      !
+function Calendar({ reservations, isCalendarioData = false, showReservedDates = false }) {
   const { t } = useTranslation();
   const [date, setDate] = useState(new Date());
 
