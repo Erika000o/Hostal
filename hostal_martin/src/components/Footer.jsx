@@ -35,7 +35,7 @@ function Footer() {
           className="hover:opacity-80 flex flex-col items-center"
         >
           <img src="/images/WhatsApp.png" alt={t('whatsapp')} className="w-16 h-16" />
-          <span className="mt-2 text-2xl">{t('Atencion al Usuario')}</span>
+          <span className="mt-2 text-2xl">{t('AtenciónUsuario')}</span>
         </a>
         <a
           href="https://www.instagram.com/biora_turismo?igsh=MWMxdGttcDExNndveQ%3D%3D&utm_source=qr"
@@ -45,7 +45,7 @@ function Footer() {
           className="hover:opacity-80 flex flex-col items-center"
         >
           <img src="/images/Biora logo blanco .png" alt={t('biora')} className="w-16 h-16" />
-          <span className="mt-2 text-2xl">{t('Biora aliado turistico')}</span>
+          <span className="mt-2 text-2xl">{t('BioraAliadoTuristico')}</span>
         </a>
         <a
           href="https://g.page/r/CYKoK1MhLj1tEAE/review"
@@ -55,17 +55,17 @@ function Footer() {
           className="hover:opacity-80 flex flex-col items-center"
         >
           <img src="/images/Reseñas.png" alt={t('shareExperience')} className="w-16 h-16" />
-          <span className="mt-2 text-2xl">{t('Comparte tu experiencia')}</span>
+          <span className="mt-2 text-2xl">{t('shareExperience')}</span>
         </a>
         <a
           href="https://www.google.com/maps/place/Hostal+Mart%C3%ADn+Pescador+%22Casa+de+Descanso%22/@4.3338432,-75.8300303,17z/data=!3m1!4b1!4m12!1m5!8m4!1e2!2s114227429867748241705!3m1!1e1!3m5!1s0x8e38532cf930c153:0x6d3d2e21532ba882!8m2!3d4.3338379!4d-75.8274554!16s%2Fg%2F11vdqd32xt?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={t('Ubicacion')}
+          aria-label={t('Ubicación')}
           className="hover:opacity-80 flex flex-col items-center"
         >
-          <img src="/images/ubicacion.png" alt={t('Ubicacion')} className="w-16 h-16" />
-          <span className="mt-2 text-2xl">{t('Ubicacion')}</span>
+          <img src="/images/ubicacion.png" alt={t('Ubicación')} className="w-16 h-16" />
+          <span className="mt-2 text-2xl">{t('Location')}</span>
         </a>
       </div>
 

@@ -24,6 +24,12 @@ function Header() {
         {/* Menú horizontal alineado y responsivo */}
         <nav className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xl whitespace-nowrap">
           <NavLink to="/" className="hover:underline text-2xl">Inicio</NavLink>
+          
+          <NavLink to="/about" className="hover:underline text-2xl">{t('about')}</NavLink>
+          <NavLink to="/rooms" className="hover:underline text-2xl">{t('rooms')}</NavLink>
+          <NavLink to="/reservations" className="hover:underline text-2xl">{t('reservations')}</NavLink>
+          <NavLink to="/contact" className="hover:underline text-2xl">{t('contact')}</NavLink>
+          <NavLink to="/login" className="hover:underline text-2xl">{t('login')}</NavLink>
           <NavLink
             as="span"
             onClick={toggleLanguage}
@@ -31,11 +37,6 @@ function Header() {
           >
             {i18n.language === 'es' ? 'EN' : 'ES'}
           </NavLink>
-          <NavLink to="/about" className="hover:underline text-2xl">{t('about')}</NavLink>
-          <NavLink to="/rooms" className="hover:underline text-2xl">{t('rooms')}</NavLink>
-          <NavLink to="/reservations" className="hover:underline text-2xl">{t('reservations')}</NavLink>
-          <NavLink to="/contact" className="hover:underline text-2xl">{t('contact')}</NavLink>
-          <NavLink to="/login" className="hover:underline text-2xl">{t('login')}</NavLink>
         </nav>
       </div>
     </header>

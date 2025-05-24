@@ -105,7 +105,7 @@ function Reservations() {
           {loading && <p className="mb-4">Cargando...</p>}
 
           <label htmlFor="room-select" className="block mb-2 font-medium text-gray-700">
-            Selecciona una habitación:
+            {t('selectRoom')}
           </label>
           <select
             id="room-select"

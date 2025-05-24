@@ -35,9 +35,9 @@ const resources = {
       whyRoomDescription2: "Este hermoso pájaro, con su plumaje azul grisáceo y su pecho color ladrillo, es conocido por su increíble habilidad para lanzarse al agua y capturar peces con gran precisión.",
       whyRoomDescription3: "Así como el martín pescador elige cuidadosamente su sitio para observar el entorno y disfrutar de la naturaleza, queremos que tú también encuentres en nuestro hostal un lugar perfecto para descansar, conectar con lo natural y vivir una experiencia tranquila y acogedora.",
 
-      coffeeMachine: "Nuestra Despulpadora de Café Bonasa #4",
+      coffeeMachine: "Nuestra Despulpadora de Café Federal #3",
       coffeeMachineDescription: "Un símbolo de tradición, trabajo y pasión por el café.",
-      coffeeMachineDescription2: "En un rincón especial de nuestro hostal se encuentra una despulpadora manual de café Bonasa #4, una máquina de tres chorros que ha sido testigo de madrugadas llenas de esfuerzo y aroma a grano fresco.",
+      coffeeMachineDescription2: "En un rincón especial de nuestro hostal se encuentra una despulpadora manual de café Federal #3, una máquina de tres chorros que ha sido testigo de madrugadas llenas de esfuerzo y aroma a grano fresco.",
       coffeeMachineDescription3: "Esta despulpadora, utilizada tradicionalmente en fincas cafeteras, representa más que un simple proceso: es la historia del campo, de las manos que cultivan y transforman el fruto en lo que conocemos como café.",
       coffeeMachineDescription4: "Al hospedarte con nosotros, no solo descansas; te conectas con la esencia del café, desde su origen hasta tu taza.",
       coffeeMachineDescription5: "Porque cada detalle en el Hostal Martín Pescador te habla, te cuenta algo, y esta máquina es un homenaje a la dedicación que hay detrás de cada sorbo.",
@@ -62,17 +62,18 @@ const resources = {
       contact: "Contacto",
       contactInfo: "Información de Contacto",
       address: "Dirección",
-      addressText: "Calle 5 # 5-45, Caicedonia, Valle del Cauca",
+      addressText: "Carrera 13 # 10-62, Caicedonia, Valle del Cauca",
       phone: "Teléfono",
-      phoneText: "+57 315 123 4567",
+      phoneText: "+57 3225956704",
       contactEmailLabel: "Email",
-      emailText: "info@hostalmartinpescador.com",
+      emailText: "casamartinpescador590@gmail.com",
       hours: "Horario de Atención",
       hoursText: "Lunes a Domingo: 8:00 AM - 8:00 PM",
       contactWhatsApp: "Contactar por WhatsApp",
 
       // Reservations.jsx
       reservations: "Reservas",
+      selectRoom: "Selecciona una habitación",
 
       // Rooms.jsx
       rooms: "Nuestras Habitaciones",
@@ -96,6 +97,8 @@ const resources = {
       checkIn: "Fecha de entrada",
       checkOut: "Fecha de salida",
       selectRange: "Por favor, selecciona un rango de fechas.",
+      reserved: "Reservado",
+      available: "Disponible",
 
 
       //Admin.jsx
@@ -145,6 +148,11 @@ const resources = {
       // Footer.jsx
       footerText: "© 2025 Hostal Martín Pescador. Todos los derechos reservados.",
       contactViaWhatsApp: "Contáctanos vía WhatsApp",
+      AtenciónUsuario: "Atención al Usuario",
+      biora: "Biora",
+      bioraAliadoTuristico: "Biora aliado turístico",
+      shareExperience: "Comparte tu experiencia",
+      Ubicación: "Ubicación",
     },
   },
   en: {
@@ -219,6 +227,7 @@ const resources = {
 
       // Reservations.jsx
       reservations: "Reservations",
+      selectRoom: "Select a room",
 
       // Rooms.jsx
       rooms: "Our Rooms",
@@ -241,8 +250,8 @@ const resources = {
       checkIn: "Check-in Date",
       checkOut: "Check-out Date",
       selectRange: "Please select a date range.",
-      reserved: "Reservado",
-      available: "Disponible",
+      reserved: "Reserved",
+      available: "Available",
       
       // Admin.jsx
       loginTitle: "Login",
@@ -291,6 +300,11 @@ const resources = {
       // Footer.jsx
       footerText: "© 2025 Hostal Martín Pescador. All rights reserved.",
       contactViaWhatsApp: "Contact us via WhatsApp",
+      AtenciónUsuario: "User attention",
+      biora: "Biora",
+      bioraAliadoTuristico: "Biora ally turistic",
+      shareExperience: "Share your experience",
+      Ubicación: "Location",
     },
   },
 };

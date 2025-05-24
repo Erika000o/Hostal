@@ -7,18 +7,15 @@ import { fetchHabitaciones } from '../lib/api';
 
 const roomImages = [
 
-  '/images/atarraya y anzuelo3.jpg',
-  '/images/El Ave que Pesca 2.jpg',
+  '/images/Tierra Chanama.jpg',
   '/images/herencia Colonial 1.jpg',
   '/images/Las Heliconias5.jpg',
-  '/images/Mariposa Monarca 2.jpg',
-  '/images/Santuario del yipao1.jpg',
-  '/images/Raíces Campesinas 1.jpg',
-  '/images/Tierra Chanama.jpg',
   '/images/Tierra de Encanto 1.jpg',
   '/images/Tradicion Cafetera1.jpg',
-  
-
+  '/images/Santuario del yipao1.jpg',
+  '/images/Atarraya y Anzuelo.jpg',
+  '/images/El Ave que Pesca 2.jpg',
+  '/images/Mariposa Monarca 2.jpg',
 ];
 
 function Home() {

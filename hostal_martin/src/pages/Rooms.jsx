@@ -10,16 +10,20 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const roomImages = [
-  ['/images/Atarraya y Anzuelo 2.jpg', '/images/Atarraya y Anzuelo.jpg','/images/atarraya y anzuelo3.jpg'],
-  ['/images/El Ave que Pesca.jpg', '/images/El Ave que Pesca 1.jpg', '/images/El Ave que Pesca 2.jpg'],
-  ['/images/Herencia Colonial.jpg', '/images/herencia Colonial 1.jpg', '/images/Herencia Colonial 2.jpg','/images/Herencia colonial 3.jpg'],
+  ['/images/Tierra Chanama.jpg','/images/Tierra Chanama 3.jpg','/images/Tierra Chanama2.jpg','/images/Tierra Chanama5.jpg'],
   ['/images/herencia Colonial 1.jpg','/images/Las Heliconias 2.jpg', '/images/Las Heliconias5.jpg', '/images/Las Heliconias6.jpg'],
+  ['/images/Las Heliconias5.jpg', '/images/Las Heliconias6.jpg','/images/Las Heliconias 2.jpg'],
+  ['/images/Tierra de Encanto.jpg', '/images/Tierra de Encanto 2.jpg','/images/Tierra de Encanto 1.jpg','/images/Tierra de Encanto4.jpg','/images/Tierra de Encanto5.jpg'],
+  ['/images/Tradicion Cafetera1.jpg','/images/Tradicion Cafetera3.jpg','/images/Tradicion Cafetera4.jpg','/images/Tradicion Cafetera5.jpg'],
+  ['/images/Santuario del Yipao.jpg', '/images/Santuario del Yipao 2.jpg','/images/Santuario del yipao1.jpg','/images/Santuario del yipao2.jpg','/images/Santuario del yipao3.jpg','/images/Santuario del yipao4.jpg'],
+  ['/images/Atarraya y Anzuelo 2.jpg', '/images/Atarraya y Anzuelo.jpg','/images/atarraya y anzuelo3.jpg'],
+  ['/images/El Ave que Pesca.jpg', '/images/El Ave que Pesca 1.jpg', '/images/El Ave que Pesca 2.jpg'], 
   ['/images/Mariposa monarca.jpg','/images/Mariposa Monarca 1-0.jpg','/images/Mariposa Monarca 1-2.jpg','/images/Mariposa Monarca 1-4.jpg','/images/Mariposa Monarca 1.jpg','/images/Mariposa Monarca 2.jpg'],
   ['/images/Raíces Campesinas.jpg','/images/Raices Campesinas 1.jpg','/images/Raices Campesinas 2.jpg'],
-  ['/images/Santuario del Yipao.jpg', '/images/Santuario del Yipao 2.jpg','/images/Santuario del yipao1.jpg','/images/Santuario del yipao2.jpg','/images/Santuario del yipao3.jpg','/images/Santuario del yipao4.jpg'],
-  ['/images/Tierra Chanama.jpg','/images/Tierra Chanama 3.jpg','/images/Tierra Chanama2.jpg','/images/Tierra Chanama5.jpg'],
-  ['/images/Tierra de Encanto.jpg', '/images/Tierra de Encanto 2.jpg','/images/Tierra de Encanto 1.jpg','/images/Tierra de Encanto4.jpg','/images/Tierra de Encanto5.jpg'],
-  ['/images/Tradicion Cafetera1.jpg','/images/Tradicion Cafetera3.jpg','/images/Tradicion Cafetera4.jpg','/images/Tradicion Cafetera5.jpg']
+  
+  
+  
+  
 ];
 
 function Rooms() {

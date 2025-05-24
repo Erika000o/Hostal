@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
 import { createReserva } from '../lib/api';
 import { ToastContainer, toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
+
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '', initialFechaEntrada = '', initialFechaSalida = '' }) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     habitacion_id: initialHabitacionId,
     nombre_cliente: '',
@@ -56,11 +60,11 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
   return (
     <div className="bg-white shadow-2xl rounded-2xl p-8 md:p-10 w-full max-w-2xl mx-auto text-[18px]">
 
-      <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Formulario de Reserva</h2>
+      <h2 className="text-3xl font-bold text-center text-green-700 mb-6">{t('reservationForm')}</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label htmlFor="habitacion_name" className="block text-2xl font-medium text-gray-700 mb-1">
-            Habitación
+            {t('room')}
           </label>
           <input
             type="text"
@@ -80,7 +84,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
 
         <div>
           <label htmlFor="nombre_cliente" className="block text-2xl font-medium text-gray-700 mb-1">
-            Nombre
+            {t('name')}
           </label>
           <input
             type="text"
@@ -95,7 +99,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
 
         <div>
           <label htmlFor="email" className="block text-2xl font-medium text-gray-700 mb-1">
-            Email
+            {t('email')}
           </label>
           <input
             type="email"
@@ -110,7 +114,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
 
         <div>
           <label htmlFor="fecha_entrada" className="block text-2xl font-medium text-gray-700 mb-1">
-            Fecha de Entrada
+            {t('checkInDate')}
           </label>
           <input
             type="date"
@@ -124,8 +128,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
         </div>
 
         <div>
-          <label htmlFor="fecha_salida" className="block text-2xl font-medium text-gray-700 mb-1">
-            Fecha de Salida
+          <label htmlFor="fecha_salida" className="block text-2xl font-medium text-gray-700 mb-1">{t('checkOutDate')}
           </label>
           <input
             type="date"
@@ -142,7 +145,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
           type="submit"
           className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition duration-300"
         >
-          Enviar Reserva
+          {t('submitReservation')}
         </button>
       </form>
       <ToastContainer />
