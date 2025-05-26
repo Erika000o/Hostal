@@ -27,7 +27,7 @@
     color: white !important;
   }
   
-  /* Fechas reservadas */
+  Fechas reservadas
   .reserved-date {
     background-color: #699cdb !important; /* slate-300 */ /* <-- Color de fondo para fechas reservadas */
     color: #113970 !important;            /* gray-800 */  /* <-- Color del texto */

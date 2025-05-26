@@ -43,7 +43,7 @@ function ReservationForm({ initialHabitacionId = '', initialHabitacionName = '',
         theme: 'colored',
       });
 
-      const whatsappMessage = `NUEVA RESERVA:\n Hola \n quiero reservar la: ${habitacionName}\n  A nombre de: ${formData.nombre_cliente}\n  Para la fecha del: ${formData.fecha_entrada} al ${formData.fecha_salida}\n  Email: ${formData.email}`;
+      const whatsappMessage = `NUEVA RESERVA:\n Hola \n quiero reservar la habitacion: ${habitacionName}\n  A nombre de: ${formData.nombre_cliente}\n  Para la fecha del: ${formData.fecha_entrada} al ${formData.fecha_salida}\n  Email: ${formData.email}`;
       const whatsappUrl = `https://wa.me/573187752351?text=${encodeURIComponent(whatsappMessage)}`;
 
       window.open(whatsappUrl, '_blank');

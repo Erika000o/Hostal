@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ReactCalendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './calendarCustom.css'; // Importamos nuestros estilos personalizados opcionalmente
+
+import './calendarCustom.css';
+
 //cambiar False por True para mostrar habitaciones Reservadas                      !
 function Calendar({ reservations, isCalendarioData = false, showReservedDates = false }) {
   const { t } = useTranslation();
@@ -33,7 +35,7 @@ function Calendar({ reservations, isCalendarioData = false, showReservedDates = 
   }
 
   const tileClassName = ({ date, view }) => {
-    if (view === 'month' && reservedDates.has(date.toDateString())) {
+    if (view === 'month' && showReservedDates && reservedDates.has(date.toDateString())) {
       return 'reserved-date';
     }
     return null;

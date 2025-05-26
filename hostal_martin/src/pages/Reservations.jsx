@@ -10,6 +10,7 @@ function Reservations() {
   const [reservations, setReservations] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  
 
   const token = localStorage.getItem('token');
 

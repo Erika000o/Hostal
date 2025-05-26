@@ -1,5 +1,5 @@
-const calendario = require('../models/calendario'); // Importación directa
-const habitacion = require('../models/habitacion'); // Importación directa
+const calendario = require('../models/calendario'); 
+const habitacion = require('../models/habitacion'); 
 
 exports.getAllCalendario = async (req, res) => {
   try {
