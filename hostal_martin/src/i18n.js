@@ -187,7 +187,7 @@ const resources = {
       whyRoomDescription2: "This beautiful bird, with its grayish-blue plumage and brick-colored chest, is known for its incredible ability to dive into the water and catch fish with great precision.",
       whyRoomDescription3: "Just as the kingfisher carefully chooses its spot to observe the surroundings and enjoy nature, we want you to find in our hostel a perfect place to rest, connect with nature, and experience tranquility and warmth.",
 
-      coffeeMachine: "Our Bonasa #4 Coffee Pulper",
+      coffeeMachine: "Our Federal #3 Coffee Pulper",
       coffeeMachineDescription: "A symbol of tradition, work, and passion for coffee.",
       coffeeMachineDescription2: "In a special corner of our hostel, you'll find a manual Bonasa #4 coffee pulper, a three-spout machine that has witnessed early mornings filled with effort and the fresh aroma of coffee beans.",
       coffeeMachineDescription3: "This pulper, traditionally used on coffee farms, represents more than just a simple process: it's the story of the countryside, of the hands that cultivate and transform the fruit into what we know as coffee.",

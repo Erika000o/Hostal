@@ -24,12 +24,12 @@ export const createReserva = async (data) => {
     },
     body: JSON.stringify(data),
   });
+/* validacion para permitir solo una reserva por fecha y habitacion*/
+  // if (!response.ok) {
+  //   throw new Error('Error al crear la reserva');
+  // }
 
-  if (!response.ok) {
-    throw new Error('Error al crear la reserva');
-  }
-
-  return await response.json();
+  // return await response.json();
 };
 export const deleteReserva = async (habitacion_id) => {
   const response = await fetch(`${API_URL}/reservas/habitacion/${habitacion_id}`, {
