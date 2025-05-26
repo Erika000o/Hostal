@@ -65,7 +65,7 @@ function Footer() {
           className="hover:opacity-80 flex flex-col items-center"
         >
           <img src="/images/ubicacion.png" alt={t('Ubicación')} className="w-16 h-16" />
-          <span className="mt-2 text-2xl">{t('Location')}</span>
+          <span className="mt-2 text-2xl">{t('Ubicación')}</span>
         </a>
       </div>
 
@@ -88,7 +88,7 @@ function Footer() {
                 casamartinpescador590@gmail.com
               </a>
             </p>
-            <p>Derechos reservados – Universidad del Valle</p>
+            <p>{t('Team')} <a href="https://equipodesarrollador.netlify.app/" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">https://equipodesarrollador.netlify.app/</a></p>
           </div>
         </div>
       </div>

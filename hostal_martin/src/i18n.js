@@ -153,6 +153,7 @@ const resources = {
       bioraAliadoTuristico: "Biora aliado turístico",
       shareExperience: "Comparte tu experiencia",
       Ubicación: "Ubicación",
+      Team: "Equipo de Desarrollo de Software:"
     },
   },
   en: {
@@ -305,6 +306,7 @@ const resources = {
       bioraAliadoTuristico: "Biora ally turistic",
       shareExperience: "Share your experience",
       Ubicación: "Location",
+      Team: "Software Development Team:"
     },
   },
 };
